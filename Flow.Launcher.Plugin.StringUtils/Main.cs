@@ -10,11 +10,11 @@ namespace Flow.Launcher.Plugin.StringUtils
 {
     public class StringUtils : IPlugin
     {
-        private PluginInitContext _context;
+        public static PluginInitContext Context { get; set; }
 
         public void Init(PluginInitContext context)
         {
-            _context = context;
+            Context = context;
         }
 
         public List<Result> Query(Query query)
