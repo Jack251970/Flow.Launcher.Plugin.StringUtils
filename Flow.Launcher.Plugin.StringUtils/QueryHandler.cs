@@ -30,7 +30,16 @@ namespace Flow.Launcher.Plugin.StringUtils
                 IcoPath = iconPath,
                 Action = _ =>
                 {
-                    StringUtils.Context.API.CopyToClipboard(title);
+                    // Fast hide the main window to avoid lagging
+                    StringUtils.Context.API.HideMainWindow();
+                    try
+                    {
+                        Clipboard.SetText(title);
+                    }
+                    catch
+                    {
+                        // Ignore any exceptions related to clipboard operations
+                    }
                     return true;
                 },
             };
