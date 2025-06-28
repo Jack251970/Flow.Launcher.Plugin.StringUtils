@@ -30,7 +30,7 @@ namespace Flow.Launcher.Plugin.StringUtils
                 IcoPath = iconPath,
                 Action = _ =>
                 {
-                    Clipboard.SetText(title);
+                    StringUtils.Context.API.CopyToClipboard(title);
                     return true;
                 },
             };
